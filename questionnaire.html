@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园问卷调查系统</title>
+    <link rel="stylesheet" href="./css/system.css">
+    <link rel="stylesheet" href="./css/questionnaire.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- 顶部标题区域 -->
+    <div class="top">
+        <div class="topbox w1000">
+            在线问卷调查-<?php echo $title ?>
+        </div>
+    </div>
+    <!-- 中部题目区域 -->
+    <div class="middle">
+        <div class="middlebox w1000">
+            <ol>
+                <!-- 遍历选择题区域 -->
+                <?php foreach ($news as $key=>$value){ ?>
+                    <li>
+                        <p leixing="选择题"><?php echo $value['timu']?></p>
+                        <input class="xuanxiang" title="<?php echo $title ?>" value="a" type="radio" name="<?php echo $value['id']?>">A、<span><?php echo $value['xxa']?></span>
+                        <input class="xuanxiang" title="<?php echo $title ?>" value="b" type="radio" name="<?php echo $value['id']?>">B、<span><?php echo $value['xxb']?></span>
+                        <input class="xuanxiang" title="<?php echo $title ?>" value="c" type="radio" name="<?php echo $value['id']?>">C、<span><?php echo $value['xxc']?></span>
+                        <input class="xuanxiang" title="<?php echo $title ?>" value="d" type="radio" name="<?php echo $value['id']?>">D、<span><?php echo $value['xxd']?></span>
+                    </li>
+                <?php } ?>
+                <!-- 遍历问答题区域 -->
+                <?php foreach ($news2 as $key2=>$value2){ ?>
+                    <li>
+                        <p leixing="问答题"><?php echo $value2['timu']?></p>
+                        <input class="wenda" title="<?php echo $title ?>" type="text" name="<?php echo $value['id']?>">
+                    </li>
+                <?php } ?>
+            </ol>
+            <div class="btnbox">
+                <a  class="btn btn-primary btn-sm" href="subsuccess.html">提交</a>
+            </div>
+           
+        </div>
+    </div>
+    <!-- 底部版权区域 -->
+    <div class="bottom">
+        <div class="bottombox w1000">
+            <span>Copyright © 2001-2020 Mengchen Corporation All Rights Reserved</span><br>
+            <span>问卷系统 | 调查问卷 | 校园专用 | 匿名问卷 | 免费使用</span>
+        </div>
+    </div>
+    <script src="https://cdn.staticfile.org/jquery/1.10.0/jquery.min.js"></script>
+    <script src="./js/questionnaire.js"></script>
+</body>
+</html>

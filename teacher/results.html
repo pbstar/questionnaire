@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园问卷调查系统</title>
+    <link rel="stylesheet" href="../css/system.css">
+    <link rel="stylesheet" href="../css/questionnaire.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../css/results.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- 顶部标题信息 -->
+    <div class="top">
+        <div class="topbox w1000">
+            问卷调查结果-<?php echo $title ?>（已做答<?php echo round($num4/($num3+$num2)) ?>人）
+        </div>
+    </div>
+    <!-- 中部内容信息 -->
+    <div class="middle">
+        <div class="middlebox w1200">
+            <ol>
+                <!-- 遍历选择图部分 -->
+                <?php foreach ($news as $key=>$value){ ?>
+
+                <div class="wtbox">
+                    <li>
+                        <p class="timup" leixing="选择题">题目：<?php echo mb_substr($value['timu'], 0, 9, 'utf-8').'...'?>
+                        </p>
+                        <p class="tp" class="timup">问题类型：<?php echo $value['type']?></p>
+                        <p class="timup">结果：<a class="btn btn-primary btn-xs"
+                                href="resultsxuanze.php?title=<?php echo $title ?>&&name=<?php echo $name ?>&&timu=<?php echo $value['timu']?>">查看结果</a>
+                        </p>
+                    </li>
+
+                </div>
+
+
+                <?php } ?>
+
+                <!-- 遍历问答题部分 -->
+                <?php foreach ($news2 as $key2=>$value2){ ?>
+                <div class="wtbox">
+                    <li>
+                        <p class="timup" leixing="问答题">题目：<?php echo mb_substr($value2['timu'], 0, 9, 'utf-8').'...'?>
+                        </p>
+                        <p class="tp" class="timup">问题类型：<?php echo $value2['type']?></p>
+                        <p class="timup">结果：<a class="btn btn-primary btn-xs"
+                                href="resultswenda.php?title=<?php echo $title ?>&&name=<?php echo $name ?>&&timu=<?php echo $value2['timu']?>">查看结果</a>
+                        </p>
+                    </li>
+
+                </div>
+                <?php } ?>
+                <!-- 分页和返回按钮部分 -->
+                <div class="btnbox">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a id="fha" class="btn btn-primary btn-sm" href="teacher.php?name=<?php echo $name ?>">返回</a>
+                </div>
+            </ol>
+        </div>
+    </div>
+    <!-- 底部版权部份 -->
+    <div class="bottom">
+        <div class="bottombox w1000">
+            <span>Copyright © 2001-2020 Mengchen Corporation All Rights Reserved</span><br>
+            <span>问卷系统 | 调查问卷 | 校园专用 | 匿名问卷 | 免费使用</span>
+        </div>
+    </div>
+    <script src="https://cdn.staticfile.org/jquery/1.10.0/jquery.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

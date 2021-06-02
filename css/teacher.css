@@ -1,0 +1,130 @@
+.topbox span{
+    color: white;
+    font-size: 20px;
+}
+.topbox a{
+    color: black;
+}
+.middlebox{
+    height: 623px;
+    background-color: white;
+}
+.midleft{
+    overflow: hidden;
+    width: 180px;
+    height: 623px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    color: white;
+    background-color: rgb(199, 93, 6);
+}
+.midleft p{
+    width: 180px;
+    height: 30px;
+    margin-top: 5px;
+    padding: 0 10px;
+    line-height: 30px;
+    box-sizing: border-box;
+    background-color: rgb(110, 110, 255);
+}
+.midleft p span{
+    float: right;
+}
+.midright{
+    float: right;
+    width: 1020px;
+    height: 603px;
+    background-color: #fff;
+}
+.middlebox .list{
+    width: 960px;
+    height: 590px;
+    margin: 0 auto;
+}
+.middlebox .list li{
+    margin-top: 10px;
+    font-size: 15px;
+    
+}
+.midright .list span{
+    display: inline-block;
+    margin-left: 10px;
+}
+.list .time,.list .title{
+    border-bottom: 1px solid blue;
+}
+.midright .list div{
+    font-size: 15px;
+    font-weight: 800;
+}
+.list div span{
+    border: none!important;
+}
+.midright .list .title{
+    width: 480px;
+}
+.midright .list .time{
+    width: 250px;
+}
+.midright .add{
+    display: none;
+}
+.midright .addbtn{
+    margin: 10px 100px;
+    overflow: hidden;
+}
+.midright .addbtn button,.midright .addbtn input{
+    margin-right: 20px;
+    float: left;
+}
+.midright .addbtn label{
+    float: left;
+    background-color:#337ab7;
+    margin-bottom: 0px;
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px 0 0 4px;
+}
+.midright #wenjuantitle{
+    height: 34px;
+    border: 3px solid #337ab7;
+    border-radius:  0 4px 4px 0;
+}
+.midright .yulanbox{
+    overflow: hidden;
+    width: 980px;
+    height: 529px;
+    margin: 20px auto;
+    border: 5px solid rgb(110, 110, 255);
+
+}
+.midright .yulanbox p{
+    background-color: rgb(110, 110, 255);
+    color: white;
+    margin: 0px!important;
+    text-align: center;
+}
+.midright .yulannr{
+    width: 980px;
+    height: 500px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.midright .yulannr ol{
+    font-size: 12px;
+}
+.bottom{
+    height: 80px!important;
+}

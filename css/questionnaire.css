@@ -1,0 +1,50 @@
+body{
+    min-width: 1000px;
+}
+.top .topbox{
+    text-align: center;
+    font-size: 22px;
+    color: white;
+}
+.middle{
+    padding: 20px;
+}
+.middlebox{
+    min-height: 549px;
+    border: 2px solid #999;
+    border-radius: 10px;
+    background-color: #eee;
+    box-sizing: border-box;
+    padding: 30px 80px;
+    position: relative;
+}
+.middlebox .xuanxiang{
+    margin-right: 5px;
+}
+.middlebox .xuanxiang+span{
+    margin-right: 20px;
+}
+.middlebox p{
+    margin-top: 5px;
+}
+.middlebox .wenda{
+    border: none;
+    height: 25px;
+    width: 845px;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+    background-color: #eee;
+}
+.middlebox .btnbox{
+    position: absolute;
+    bottom: 40px;
+    left: 480px;
+}
+.middlebox a{
+    display: inline-block;
+    margin: 10px auto;
+
+}
+.middlebox ol{
+    margin-bottom: 70px;
+}

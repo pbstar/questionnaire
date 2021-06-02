@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园问卷调查系统</title>
+    <link rel="stylesheet" href="../css/system.css">
+    <link rel="stylesheet" href="../css/teacher.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- 顶部标题信息 -->
+    <div class="top">
+        <div class="topbox w1200">
+            <span>校园问卷调查系统-教师管理后台</span>
+            <ul>
+                <li>欢迎您，<?php echo $name ?>。</li>
+                <li class="time"><?php echo $time ?></li>
+                <li><a href="../index.html">退出登录</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- 中部内容区域 -->
+    <div class="middle">
+        <div class="middlebox w1200">
+            <!-- 中间右侧内容区域 -->
+            <div class="midright">
+                <!-- 内容页面一 -->
+                <div class="list">
+                    <!-- 列表标题 -->
+                    <div>
+                        <span class="title">问卷标题</span>
+                        <span class="time">创建时间</span>
+                        <span class="operation">操作</span>
+                    </div>
+                    <ol>
+                        <!-- 遍历列表内容 -->
+                        <?php foreach ($news3 as $key3=>$value3){ ?>
+                        <li>
+                            <span class="title"><?php echo $value3['title']?></span>
+                            <span class="time"><?php echo $value3['time']?></span>
+                            <span class="operation">
+                                <a class="btn btn-primary btn-xs"
+                                    href="../questionnaire.php?title=<?php echo $value3['title']?>">查看问卷</a>
+                                <a class="btn btn-success btn-xs"
+                                    href="results.php?title=<?php echo $value3['title']?>&&name=<?php echo $name ?>">查看结果</a>
+                                <a class="btn btn-danger btn-xs"
+                                    href="../deletequestion.php?title=<?php echo $value3['title']?>&&name=<?php echo $name ?>">删除问卷</a>
+                            </span>
+                        </li>
+                        <?php } ?>
+                    </ol>
+                </div>
+                <!-- 页面内容二 -->
+                <div class="add" type="<?php echo $type ?>">
+                    <!-- 添加按钮 -->
+                    <div class="addbtn">
+                        <form action="addwenjuan.php?teacher=<?php echo $name ?>" method="post">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#xuanzebox">添加一道选择题</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#wendabox">添加一道问答题</button>
+                            <label for="title">问卷标题：</label>
+                            <input name="title" type="text" id="wenjuantitle" placeholder="请输入问卷标题">
+                            <input type="submit" class="btn btn-primary" value="完成问卷创建">
+                        </form>
+                    </div>
+                    <!-- 待编辑问卷题目预览 -->
+                    <div class="yulanbox">
+                        <p>问卷信息预览</p>
+                        <div class="yulannr">
+                            <span>选择题</span>
+                            <ol type="1">
+                                <?php foreach ($news as $key=>$value){ ?>
+                                <li>
+                                    <?php echo $value['timu']?>&nbsp;
+                                    A:<?php echo $value['xxa']?>&nbsp;
+                                    B:<?php echo $value['xxb']?>&nbsp;
+                                    C:<?php echo $value['xxc']?>&nbsp;
+                                    D:<?php echo $value['xxd']?>&nbsp;
+                                </li>
+                                <?php } ?>
+                            </ol>
+                            <span>问答题</span>
+                            <ol type="1">
+                                <?php foreach ($news2 as $key2=>$value2){ ?>
+                                <li>
+                                    <?php echo $value2['timu']?>
+                                </li>
+                                <?php } ?>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- 添加题目模态框 -->
+                    <div class="addbox">
+                        <!-- 添加选择题模态框 -->
+                        <div class="modal fade" id="xuanzebox" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <form action="xuanzeadd.php?name=<?php echo $name ?>" method="post">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">请添加一道选择题</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">题目：</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1"
+                                                    name="timu" placeholder="请输入题目">
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">A</div>
+                                                <input type="text" class="form-control" id="exampleInputAmount"
+                                                    name="xxa" placeholder="请输入A选项的内容">
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">B</div>
+                                                <input type="text" class="form-control" id="exampleInputAmount"
+                                                    name="xxb" placeholder="请输入B选项的内容">
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">C</div>
+                                                <input type="text" class="form-control" id="exampleInputAmount"
+                                                    name="xxc" placeholder="请输入C选项的内容">
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">D</div>
+                                                <input type="text" class="form-control" id="exampleInputAmount"
+                                                    name="xxd" placeholder="请输入D选项的内容">
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">取消</button>
+                                            <input type="submit" class="btn btn-primary" value="添加">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 添加问答题模态框 -->
+                        <div class="modal fade" id="wendabox" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <form action="wendaadd.php?name=<?php echo $name ?>" method="post">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">请添加一道问答题</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">题目：</label>
+                                                <textarea name="timu" id="" cols="30" rows="5" class="form-control" placeholder="请输入题目"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">取消</button>
+                                            <input type="submit" class="btn btn-primary" value="添加">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 中间左侧导航 -->
+            <div class="midleft">
+                <p id="listp">问卷列表
+                    <span class="iconfont icon-arrow-right"></span>
+                </p>
+                <p id="addp">添加问卷
+                    <span class="iconfont icon-arrow-right"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- 底部版权信息 -->
+    <div class="bottom">
+        <div class="bottombox w1200">
+            <span>Copyright © 2001-2020 Mengchen Corporation All Rights Reserved</span><br>
+            <span>问卷系统 | 调查问卷 | 校园专用 | 匿名问卷 | 免费使用</span>
+        </div>
+    </div>
+    <script src="../js/teacher.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.0/jquery.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

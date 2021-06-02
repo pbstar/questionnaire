@@ -1,0 +1,53 @@
+.middle{
+    padding: 0!important;
+    height: 623px!important;
+}
+.middlebox{
+    height: 100%;
+    position: relative;
+    border-radius: 0%;
+    border: none;
+    padding: 15px 20px;
+}
+.middlebox .btnbox{
+    position: absolute;
+    bottom: 20px;
+    left: 480px;
+    width: 231px;
+}
+#fha{
+    margin-top: 10px;
+    margin-left: 92px;
+}
+.middlebox ol{
+    margin-bottom: 70px;
+}
+.bottom{
+    height: 80px;
+}
+.wtbox{
+    width: 221.5px;
+    height: 100px;
+    background-color: white;
+    float: left;
+    padding: 5px;
+    margin: 5px;
+}
+.wtbox li{
+    margin-left: 22px;
+    margin-top: 2px;
+}
+.wtbox a{
+    margin: 0;
+}
+.timup{
+    margin: 0!important;
+    line-height: 25px;
+    font-size: 14px;
+}
+.wtbox .tp{
+    font-size: 12px;
+}
+nav ul{
+    margin: 0!important;
+}

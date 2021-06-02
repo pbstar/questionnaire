@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/system.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: white;
+        }
+        #btn {
+            display: none;
+        }
+        span,li{
+            float: left;
+        }
+        li{
+            margin-left: 23px;
+        }
+        p{
+            display: inline;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Button trigger modal -->
+    <button id="btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">问题：<?php echo $timu?></h4>
+                </div>
+                <div class="modal-body">
+                    <ol>
+                        <?php foreach ($news2 as $key2=>$value2){ ?>
+                            <p>
+                                <span>结果</span>
+                                <li><?php echo $value2['daan']?></li>
+                    
+                            </p><br>
+                        <?php } ?>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="results.php?title=<?php echo $title?>&&name=<?php echo $name ?>">返回</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.staticfile.org/jquery/1.10.0/jquery.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        // 页面加载完成执行 button 单击事件
+        document.onreadystatechange = function () {
+            if (document.readyState == "complete") {
+                $("#btn").trigger('click');
+            }
+        }
+    </script>
+</body>
+
+</html>

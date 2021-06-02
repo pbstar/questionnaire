@@ -1,0 +1,42 @@
+.w1200{
+    width: 1200px;
+    margin: 0 auto;
+}
+.w1000{
+    width: 1000px;
+    margin: 0 auto;
+}
+.top{
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(110, 110, 255);
+}
+.top h3{
+    float: left;
+    color: white;
+    font-size: 22px;
+}
+.top ul{
+    float: right;
+    color: #eee;
+    font-size: 15px;
+}
+.top li{
+    float: left;
+    margin-left: 15px;
+}
+.middle{
+    min-height: 593px;
+    box-sizing: border-box;
+    width: 100%;
+    background-image: url(../images/bj.png);
+}
+.bottom{
+    height: 110px;
+    text-align: center;
+    font-size: 13px;
+    background-color: rgb(110, 110, 110);
+    color: #eee;
+    padding:15px;
+    line-height:20px;
+}

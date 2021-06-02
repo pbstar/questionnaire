@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>校园问卷调查系统</title>
+    <link rel="stylesheet" href="./css/system.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./font/iconfont.css">
+</head>
+<body>
+    <!-- 顶部标题部分 -->
+    <div class="top">
+        <div class="topbox w1200">
+            <h3>校园匿名问卷调查系统</h3>
+            <ul>
+                <li>官方客服</li>
+                <li>站内通知</li>
+                <li>教师须知</li>
+                <li>关于我们</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 中间内容区域 -->
+    <div class="middle">
+        <div class="middlebox w1200">
+            <div class="contentbox">
+                <span id="conttitle">课后调查小问卷</span>
+                <span class="iconfont icon-xuanzhong"></span>
+                <span>成效调查</span>
+                <span class="iconfont icon-xuanzhong"></span>
+                <span>课后小考</span><br>
+                <span class="iconfont icon-xuanzhong"></span>
+                <span>及时复习</span>
+                <span class="iconfont icon-xuanzhong"></span>
+                <span>意见建议</span>
+                <span class="iconfont icon-xuanzhong"></span>
+                <span>新知预知</span>
+                <span class="iconfont icon-xuanzhong"></span>
+                <span>能力扩展</span>
+            </div>
+            <!-- 教师登录注册框 -->
+            <div class="teacherlogin login">
+                <h4>教师登录</h4>
+                <input type="text" placeholder="请输入账号" class="name">
+                <input type="password" placeholder="请输入密码" class="password">
+                <div class="switchteaadm">
+                    <a href="#" onclick="adminlogin()">切换管理员登录</a>
+                </div>
+                <button class="loginbtn" id="teacherloginbtn">登录</button>
+                <button class="registeredbtn" id="teacherregisteredbtn">注册</button>
+            </div>
+            <!-- 管理员登陆注册框 -->
+            <div class="adminlogin login" style="display: none;">
+                <h4>管理员登录</h4>
+                <input type="text" placeholder="请输入账号" class="name">
+                <input type="password" placeholder="请输入密码" class="password">
+                <div class="switchteaadm">
+                    <a href="#" onclick="teacherlogin()">切换教师登录</a>
+                </div>
+                <button class="loginbtn" id="adminloginbtn">登录</button>
+                <button class="registeredbtn" id="adminregisteredbtn">注册</button>
+            </div>
+        </div>
+    </div>
+    <!-- 底部版权区域 -->
+    <div class="bottom">
+        <div class="bottombox w1200">
+            <span>Copyright © 2001-2020 Mengchen Corporation All Rights Reserved</span><br>
+            <span>问卷系统 | 调查问卷 | 校园专用 | 匿名问卷 | 免费使用</span>
+        </div>
+    </div>
+    <script src="https://cdn.staticfile.org/jquery/1.10.0/jquery.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>

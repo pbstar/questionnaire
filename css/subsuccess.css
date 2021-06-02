@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(110, 110, 255);
+}
+.big{
+    width: 1535px;
+    height: 450px;
+}
+.small{
+    width: 200px;
+    height: 250px;
+    margin: 230px auto;
+    text-align: center;
+    color: white;
+}
+.small span{
+    font-size: 180px;
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/system.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/histogram.css">
+    <style>
+        #btn {
+            display: none;
+        }
+
+        span,
+        li {
+            float: left;
+        }
+
+        li {
+            margin-left: 23px;
+        }
+
+        p {
+            display: inline;
+            overflow: hidden;
+        }
+        .jgfx{
+            position: absolute;
+            top: 25px;
+            left: 250px;
+            font-size: 17px;
+        }
+        .modal-body{
+            position: relative;
+        }
+        .xx{
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Button trigger modal -->
+    <button id="btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">问题：<?php echo $timu?></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="jgfx">单选结果分析</div>
+                    <div class="zzt" style="height: 100%; margin: 0">
+                        <div id="container" style=" width: 560px;height: 300px;"></div><br>
+                        <div class="xx">
+                            <p>选项A：<?php echo $news3['xxa']?></p><br>
+                            <p>选项B：<?php echo $news3['xxb']?></p><br>
+                            <p>选项C：<?php echo $news3['xxc']?></p><br>
+                            <p>选项D：<?php echo $news3['xxd']?></p><br>
+                        </div>
+                        <script type="text/javascript" src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+                        <script type="text/javascript">
+                            var dom = document.getElementById("container");
+                            var myChart = echarts.init(dom);
+                            var app = {};
+                            option = null;
+                            app.title = '柱状图分数划分';
+                            var namedate = ['A', 'B', 'C', 'D'];
+                            var numdate = ['<?php echo $num2a?>', '<?php echo $num2b?>', '<?php echo $num2c?>', '<?php echo $num2d?>'];
+                            var colorlist = [];
+                            numdate.forEach(element => {
+                                if (element < 2) {
+                                    colorlist.push(["#fc7095", "#fa8466"])
+                                } else if (element >= 2 && element < 6) {
+                                    colorlist.push(["#386ffd", "#74b3ff"])
+                                } else {
+                                    colorlist.push(["#1aa8ce", "#49d3c6"])
+                                }
+                            });
+                            option = {
+                    
+                                tooltip: {
+                                    trigger: 'axis',
+                                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                                    }
+                                },
+                                grid: {
+                                    left: '3%',
+                                    right: '4%',
+                                    bottom: '3%',
+                                    containLabel: true
+                                },
+                                xAxis: [
+                                    {
+                                        type: 'category',
+                                        data: namedate,
+                                        axisTick: {
+                                            alignWithLabel: true
+                                        },
+                                        axisLine: {
+                                            lineStyle: {
+                                                color: "#4dd1c4",
+                                                width: 1
+                                            }
+                                        },
+                                        axisLabel: {
+                                            show: true,
+                                            textStyle: {
+                                                color: '#999'
+                                            }
+                                        }
+                                    }
+                                ],
+                                yAxis: [
+                                    {
+                                        type: 'value',
+                                        axisLabel: {
+                                            formatter: '{value} 人',
+                                            show: true,
+                                            textStyle: {
+                                                color: '#999'
+                                            }
+                                        },
+                                        axisLine: {
+                                            lineStyle: {
+                                                color: "#4dd1c4",
+                                                width: 1
+                                            }
+                                        },
+                                        splitLine: {
+                                            show: true,
+                                            lineStyle: {
+                                                type: 'dashed',
+                                                color: '#ddd'
+                                            }
+                                        }
+                    
+                                    }
+                                ],
+                                series: [
+                                    {
+                                        name: '选择人数',
+                                        type: 'bar',
+                                        barWidth: '60%',
+                                        data: numdate,
+                                        itemStyle: {
+                                            normal: {
+                                                // color: new echarts.graphic.LinearGradient(
+                                                //     0, 0, 0, 1,
+                                                //     [
+                                                //         {offset: 1, color: 'red'},
+                                                //         {offset: 0, color: 'orange'}
+                                                //     ]
+                                                // )
+                                                color: function (params) {
+                                                    // var colorList = colorlist;
+                                                    // return colorList[params.dataIndex];
+                                                    var colorList = colorlist
+                    
+                                                    var index = params.dataIndex;
+                                                    // if(params.dataIndex >= colorList.length){
+                                                    //         index=params.dataIndex-colorList.length;
+                                                    // }
+                                                    return new echarts.graphic.LinearGradient(0, 0, 0, 1,
+                                                        [
+                                                            { offset: 1, color: colorList[index][0] },
+                                                            { offset: 0, color: colorList[index][1] }
+                                                        ]);
+                    
+                    
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            };
+                            ;
+                            if (option && typeof option === "object") {
+                                myChart.setOption(option, true);
+                            }
+                        </script>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary"
+                        href="results.php?title=<?php echo $title?>&&name=<?php echo $name ?>">返回</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.staticfile.org/jquery/1.10.0/jquery.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/script/vote.js"></script>
+    <script type="text/javascript" src="../static/script/histogram.js"></script>
+    <script>
+        // 页面加载完成执行 button 单击事件
+        document.onreadystatechange = function () {
+            if (document.readyState == "complete") {
+                $("#btn").trigger('click');
+            }
+        }
+
+    </script>
+</body>
+
+</html>
